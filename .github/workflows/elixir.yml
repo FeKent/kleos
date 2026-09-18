@@ -35,6 +35,9 @@ jobs:
       - name: Install dependencies
         run: mix deps.get
 
+      - name: Compile
+        run: mix compile --warnings-as-errors
+
       - name: Check formatting
         run: |
           output=$(mix format --check-formatted 2>&1) || {
@@ -42,8 +45,8 @@ jobs:
             exit 1
           }
 
-      - name: Compile
-        run: mix compile --warnings-as-errors
+      - name: Credo
+        run: mix credo
 
       - name: Run tests
         run: mix test
