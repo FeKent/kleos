@@ -19,7 +19,7 @@ defmodule KleosWeb.Router do
 
     get "/", PageController, :home
 
-    live "home" , Landing.LandingPage, :show
+    live "home", Landing.LandingPage, :show
   end
 
   # Other scopes may use custom stacks.
