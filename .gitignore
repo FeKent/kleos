@@ -35,3 +35,5 @@ kleos-*.tar
 npm-debug.log
 /assets/node_modules/
 
+
+config/secrets.exs

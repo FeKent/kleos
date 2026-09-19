@@ -1,9 +1,10 @@
 import Config
+import_config "secrets.exs"
 
 # Configure your database
 config :kleos, Kleos.Repo,
   username: "postgres",
-  password: "cline",
+  password: Application.get_env(:kleos, :dev_postgres_pwd),
   hostname: "localhost",
   database: "kleos_dev",
   stacktrace: true,
