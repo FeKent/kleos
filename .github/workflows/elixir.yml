@@ -13,6 +13,9 @@ jobs:
     name: Build and test
     runs-on: ubuntu-latest
 
+    env:
+      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+
     services:
       postgres:
         image: postgres:16
