@@ -1,5 +1,4 @@
 import Config
-import_config "secrets.exs"
 
 # Configure your database
 #
@@ -8,7 +7,7 @@ import_config "secrets.exs"
 # Run `mix help test` for more information.
 config :kleos, Kleos.Repo,
   username: "postgres",
-  password: Application.get_env(:kleos, :test_postgres_pwd),
+  password: System.fetch_env!("POSTGRES_PASSWORD"),
   hostname: "localhost",
   database: "kleos_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
