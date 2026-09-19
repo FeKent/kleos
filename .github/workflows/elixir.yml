@@ -62,5 +62,14 @@ jobs:
       - name: Credo
         run: mix credo
 
+      - name: Dialyzer
+        run: mix dialyzer --format short
+
+      - name: Audit
+        run: mix deps.audit
+
+      - name: Sobelow
+        run: mix sobelow
+
       - name: Run tests
         run: mix test
