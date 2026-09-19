@@ -30,6 +30,11 @@ config :kleos, KleosWeb.Endpoint,
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:kleos, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:kleos, ~w(--watch)]}
+  ],
+  live_reload: [
+    interval: 1000,
+    patterns: [~r"\.(ex|heex)$"],
+    reload_page_on_css_change: true
   ]
 
 # ## SSL Support
