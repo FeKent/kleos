@@ -7,7 +7,7 @@ import Config
 # Run `mix help test` for more information.
 config :kleos, Kleos.Repo,
   username: "postgres",
-  password: System.fetch_env!("POSTGRES_PASSWORD"),
+  password: System.get_env("POSTGRES_PASSWORD"),
   hostname: "localhost",
   database: "kleos_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,

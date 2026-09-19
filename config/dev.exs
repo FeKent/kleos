@@ -7,7 +7,6 @@ end
 # Configure your database
 config :kleos, Kleos.Repo,
   username: "postgres",
-  password: Application.get_env(:kleos, :dev_postgres_pwd),
   hostname: "localhost",
   database: "kleos_dev",
   stacktrace: true,
