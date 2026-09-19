@@ -1,5 +1,8 @@
 import Config
-import_config "secrets.exs"
+
+if File.exists?(Path.join(__DIR__, "secrets.exs")) do
+  import_config "secrets.exs"
+end
 
 # Configure your database
 config :kleos, Kleos.Repo,
