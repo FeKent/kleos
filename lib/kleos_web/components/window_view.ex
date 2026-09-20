@@ -3,18 +3,25 @@ defmodule KleosWeb.WindowView do
 
   def render(assigns) do
     ~H"""
-    <div class="h-full flex flex-col">
-      <div class="mx-4 flex gap-1 border rounded-t-lg">
-        <div class="px-4 border-r rounded-lg">Tab</div>
-        <div class="px-4 border-r rounded-lg">Tab 2</div>
+    <div class="h-full flex flex-col mx-16">
+      <div class="flex gap-1 border rounded-t-lg">
+        <%= for tab <- @tabs do %>
+          <div class="px-4 border-r rounded-lg">
+            {tab}
+          </div>
+        <% end %>
       </div>
-      <div class="mx-4 flex gap-1 border">
-        <div class="px-4 border-r rounded-lg">Back</div>
+      <div class="flex gap-1 border items-center">
+        <.icon name="hero-arrow-left" id="back_button" class="ml-4" />
         <div class="px-4 border-r rounded-lg">Home</div>
         <div class="px-16 border-r rounded-lg">URL bar</div>
       </div>
-      <div class="mx-4 border-r border-l border-b flex rounded-b-lg flex-1 min-h-0 mb-4"></div>
+      <div class="border-r border-l border-b flex bg-white rounded-b-lg flex-1 mb-4"></div>
     </div>
     """
+  end
+
+  def mount(socket) do
+    {:ok, socket}
   end
 end
