@@ -445,7 +445,7 @@ defmodule KleosWeb.CoreComponents do
   """
   attr :name, :string, required: true
   attr :class, :any, default: "size-4"
-  attr :id, :string, required: true
+  attr :id, :string
 
   def icon(%{name: "hero-" <> _} = assigns) do
     ~H"""
