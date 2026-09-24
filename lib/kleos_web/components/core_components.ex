@@ -444,7 +444,7 @@ defmodule KleosWeb.CoreComponents do
       <.icon name="hero-arrow-path" class="ml-1 size-3 motion-safe:animate-spin" />
   """
   attr :name, :string, required: true
-  attr :class, :any, default: "size-4"
+  attr :class, :any, default: "size-5"
   attr :id, :string, default: nil
 
   def icon(%{name: "hero-" <> _} = assigns) do
