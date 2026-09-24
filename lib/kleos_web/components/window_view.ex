@@ -9,7 +9,7 @@ defmodule KleosWeb.WindowView do
           <div
             class={[
               "px-4 border-r rounded-lg cursor-pointer",
-              @selected_tab == tab && "bg-gray-200"
+              @selected_tab == tab && "bg-gray-600"
             ]}
             phx-click="select_tab"
             phx-target={@myself}
@@ -32,17 +32,13 @@ defmodule KleosWeb.WindowView do
         <div class="flex w-full mb-2">
           <%= case @selected_tab do %>
             <% "Google" -> %>
-              <div class="p-4">
-                <h1 class="text-2xl text-black">Google</h1>
-                <p class="text-black">Google content goes here.</p>
-              </div>
+              <.live_component module={KleosWeb.TabViews.GoogleView} id="Google View" />
             <% "FaceCard" -> %>
-              <div class="p-4">
-                <h1 class="text-2xl text-black">FaceCard</h1>
-                <p class="text-black">FaceCard content goes here.</p>
-              </div>
-            <% _ -> %>
-              <p class="text-black p-4">No tab selected</p>
+              <.live_component module={KleosWeb.TabViews.FaceCardView} id="FaceCard View" />
+            <% "Home" -> %>
+              <.live_component module={KleosWeb.TabViews.HomeView} id="Home View" />
+            <% _-> %>
+              <.live_component module={KleosWeb.TabViews.LoadingView} id="Loading View" />
           <% end %>
         </div>
       </div>
@@ -51,7 +47,11 @@ defmodule KleosWeb.WindowView do
   end
 
   def mount(socket) do
-    {:ok, assign(socket, selected_tab: nil)}
+    socket =
+      socket
+      |> assign(selected_tab: "Home")
+
+    {:ok, socket}
   end
 
   def update(assigns, socket) do
